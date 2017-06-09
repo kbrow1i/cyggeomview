@@ -42,9 +42,6 @@ libgeomview_devel_CONTENTS="
   usr/lib
 "
 
-# libgeomview5_REQUIRES=libgeomview-sieve-extensions
-
-# CYGCONF_ARGS="--without-guile --with-mh-bindir=/usr/libexec/mu-mh"
+CYGCONF_ARGS="--with-htmlbrowser=cygstart"
 
 DEPEND="libXm-devel libGL-devel libGLU-devel"
-# libtcl-devel etc?  libjpeg-devel?  Check configure options.
