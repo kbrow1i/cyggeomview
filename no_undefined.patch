@@ -1,0 +1,8 @@
+--- origsrc/geomview-1.9.5/src/lib/Makefile.am	2014-03-12 12:51:13.000000000 -0400
++++ src/geomview-1.9.5/src/lib/Makefile.am	2017-06-08 17:07:53.078591900 -0400
+@@ -11,4 +11,4 @@ libgeomview_la_SOURCES =
+ libgeomview_la_LIBADD = \
+  $(OOGLLIBS) $(OPENGLLIBS) $(SOCKETLIBS) $(XLIBS) $(ZLIB_LIB)
+ libgeomview_la_DEPENDENCIES = $(OOGLLIBS) Makefile.am
+-libgeomview_la_LDFLAGS = -release @PACKAGE_VERSION@
++libgeomview_la_LDFLAGS = -no-undefined -release @PACKAGE_VERSION@

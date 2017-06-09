@@ -1,0 +1,50 @@
+NAME="geomview"
+VERSION=1.9.5
+RELEASE=1
+
+SRC_URI="https://sourceforge.net/projects/geomview/files/geomview/${PV}/${P}.tar.xz"
+
+PATCH_URI="no_undefined.patch"
+PATCH_URI+=" weak_symbols.patch"
+
+HOMEPAGE="http://www.geomview.org/"
+SUMMARY="An interactive 3D viewing program"
+DESCRIPTION="Geomview lets you view and manipulate three-dimensional objects: you
+use the mouse to rotate, translate, zoom in and out, and so on.
+Geomview can be used as a standalone viewer for static objects or as a
+display engine for other programs which produce dynamically changing
+geometry.  Geomview can display objects described in a variety of file
+formats.  Geomview comes with a wide selection of example objects, and
+you can create your own objects too."
+
+PKG_NAMES="${PN}
+ lib${PN}-${PV}
+ lib${PN}-devel
+"
+
+geomview_CATEGORY="Math"
+libgeomview_1_9_5_CATEGORY="Math Libs"
+libgeomview_devel_CATEGORY="Math Devel"
+
+
+geomview_CONTENTS="
+  usr/bin/*.exe
+  usr/bin/geomview
+  usr/bin/hvectext
+  usr/bin/remotegv
+  usr/share
+"
+
+libgeomview_1_9_5_CONTENTS="usr/bin/cyg*-1-9-5.dll"
+
+libgeomview_devel_CONTENTS="
+  usr/include
+  usr/lib
+"
+
+# libgeomview5_REQUIRES=libgeomview-sieve-extensions
+
+# CYGCONF_ARGS="--without-guile --with-mh-bindir=/usr/libexec/mu-mh"
+
+DEPEND="libXm-devel libGL-devel libGLU-devel"
+# libtcl-devel etc?  libjpeg-devel?  Check configure options.
