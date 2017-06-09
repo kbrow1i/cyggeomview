@@ -5,7 +5,7 @@
   *  - or, if we're on a system that claims to support it at compile time,
   *	  we'll just hope that that system also supports it at run time.
 + * But Cygwin does not support weak symbols, and the use of "#pragma
-+ * weak" causes "undefined symbols" errors when linking on x86_64
++ * weak" causes "undefined symbol" errors when linking on x86_64
 + * Cygwin.
   */
  

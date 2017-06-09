@@ -18,7 +18,7 @@ formats.  Geomview comes with a wide selection of example objects, and
 you can create your own objects too."
 
 PKG_NAMES="${PN}
- lib${PN}-${PV}
+ lib${PN}_${PV}
  lib${PN}-devel
 "
 
@@ -32,6 +32,7 @@ geomview_CONTENTS="
   usr/bin/geomview
   usr/bin/hvectext
   usr/bin/remotegv
+  usr/libexec
   usr/share
 "
 
