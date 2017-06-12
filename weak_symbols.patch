@@ -1,12 +1,11 @@
 --- origsrc/geomview-1.9.5/src/lib/mg/opengl/mgopenglshade.c	2014-03-12 12:51:13.000000000 -0400
-+++ src/geomview-1.9.5/src/lib/mg/opengl/mgopenglshade.c	2017-06-09 10:25:41.647550600 -0400
-@@ -413,10 +413,15 @@ mgopengl_lightmodeldef(int lightmodel, L
++++ src/geomview-1.9.5/src/lib/mg/opengl/mgopenglshade.c	2017-06-12 18:04:19.211798000 -0400
+@@ -413,10 +413,14 @@ mgopengl_lightmodeldef(int lightmodel, L
   *	  supports it;
   *  - or, if we're on a system that claims to support it at compile time,
   *	  we'll just hope that that system also supports it at run time.
-+ * But Cygwin does not support weak symbols, and the use of "#pragma
-+ * weak" causes "undefined symbol" errors when linking on x86_64
-+ * Cygwin.
++ * For unknown reasons the two pragmas below cause "undefined symbol"
++ * errors when linking on x86_64 Cygwin.
   */
  
 +#ifndef __CYGWIN__

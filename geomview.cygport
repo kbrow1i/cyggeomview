@@ -17,31 +17,22 @@ geometry.  Geomview can display objects described in a variety of file
 formats.  Geomview comes with a wide selection of example objects, and
 you can create your own objects too."
 
-PKG_NAMES="${PN}
- lib${PN}1_9_5
- lib${PN}-devel
-"
+PKG_NAMES="${PN} ${PN}-devel"
 
 geomview_CATEGORY="Math"
-libgeomview1_9_5_CATEGORY="Math Libs"
-libgeomview_devel_CATEGORY="Math Devel"
+geomview_devel_CATEGORY="Math Devel"
 
 geomview_CONTENTS="
-  usr/bin/*.exe
-  usr/bin/geomview
-  usr/bin/hvectext
-  usr/bin/remotegv
+  usr/bin
   usr/libexec
   usr/share
 "
 
-libgeomview1_9_5_CONTENTS="usr/bin/cyg*-1-9-5.dll"
-
-libgeomview_devel_CONTENTS="
+geomview_devel_CONTENTS="
   usr/include
   usr/lib
 "
 
 CYGCONF_ARGS="--with-htmlbrowser=cygstart"
 
-DEPEND="libXm-devel libGL-devel libGLU-devel"
+DEPEND="libXm-devel libGL-devel libGLU-devel zlib-devel"
