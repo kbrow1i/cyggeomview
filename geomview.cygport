@@ -2,7 +2,7 @@ NAME="geomview"
 VERSION=1.9.5
 RELEASE=1
 
-SRC_URI="https://sourceforge.net/projects/geomview/files/geomview/${PV}/${P}.tar.xz"
+SRC_URI="https://sourceforge.net/projects/geomview/files/${PN}/${PV}/${P}.tar.xz"
 
 PATCH_URI="no_undefined.patch"
 PATCH_URI+=" weak_symbols.patch"
@@ -18,14 +18,13 @@ formats.  Geomview comes with a wide selection of example objects, and
 you can create your own objects too."
 
 PKG_NAMES="${PN}
- lib${PN}_${PV}
+ lib${PN}1_9_5
  lib${PN}-devel
 "
 
 geomview_CATEGORY="Math"
-libgeomview_1_9_5_CATEGORY="Math Libs"
+libgeomview1_9_5_CATEGORY="Math Libs"
 libgeomview_devel_CATEGORY="Math Devel"
-
 
 geomview_CONTENTS="
   usr/bin/*.exe
@@ -36,7 +35,7 @@ geomview_CONTENTS="
   usr/share
 "
 
-libgeomview_1_9_5_CONTENTS="usr/bin/cyg*-1-9-5.dll"
+libgeomview1_9_5_CONTENTS="usr/bin/cyg*-1-9-5.dll"
 
 libgeomview_devel_CONTENTS="
   usr/include
