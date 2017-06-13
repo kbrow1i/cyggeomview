@@ -1,11 +1,12 @@
 NAME="geomview"
 VERSION=1.9.5
-RELEASE=1
+RELEASE=2
 
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 PATCH_URI="no_undefined.patch"
 PATCH_URI+=" weak_symbols.patch"
+PATCH_URI+=" extern_inline.patch"
 
 HOMEPAGE="http://www.geomview.org/"
 SUMMARY="An interactive 3D viewing program"

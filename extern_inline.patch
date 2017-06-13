@@ -1,0 +1,11 @@
+--- origsrc/geomview-1.9.5/src/lib/forms/xforms-compat.h	2014-03-12 12:51:12.000000000 -0400
++++ src/geomview-1.9.5/src/lib/forms/xforms-compat.h	2017-06-13 12:04:37.006044200 -0400
+@@ -61,7 +61,7 @@
+ 	fl_initialize(&argc, argv, argv[0], 0, 0);	\
+     }
+ 
+-extern inline void flx_end_form() {
++inline void flx_end_form() {
+   FL_OBJECT *obj = NULL;
+   if(fl_current_form)
+     obj = fl_current_form->first;
