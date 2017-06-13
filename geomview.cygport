@@ -2,7 +2,7 @@ NAME="geomview"
 VERSION=1.9.5
 RELEASE=1
 
-SRC_URI="https://sourceforge.net/projects/geomview/files/${PN}/${PV}/${P}.tar.xz"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.xz"
 
 PATCH_URI="no_undefined.patch"
 PATCH_URI+=" weak_symbols.patch"
