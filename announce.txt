@@ -1,10 +1,10 @@
-From cygwin-announce-geomview-1.9.5-1 Mon Jun 12 18:17:30 2017
+From cygwin-announce-geomview-1.9.5-1 Mon Jun 12 21:15:11 2017
 From: Ken Brown <kbrown@cornell.edu>
 To: cygwin-announce@cygwin.com
-Date: Mon, 12 Jun 2017 18:17:30 -0400
-Subject: geomview 1.9.5-1
+Date: Mon, 12 Jun 2017 21:15:11 -0400
+Subject: New: geomview 1.9.5-1
 
-The following packages have been uploaded to the Cygwin distribution:
+The following packages have been added to the Cygwin distribution:
 
 * geomview-1.9.5-1
 * geomview-devel-1.9.5-1
