@@ -1,0 +1,37 @@
+NAME="gvemodules-xforms"
+VERSION=0.5
+RELEASE=1
+
+SRC_URI="mirror://sourceforge/geomview/${P}.tar.xz"
+
+# PATCH_URI="no_undefined.patch"
+# PATCH_URI+=" weak_symbols.patch"
+
+HOMEPAGE="http://www.geomview.org/"
+SUMMARY="XForms-based plugins for Geomview"
+
+DESCRIPTION="This package contains XForms based emodules of the original Geomview
+distribution.  emodules are plugins which extend the functionality of
+Geomview (an interactive 3d viewing program).  The modules are based
+on XForms and can be used as a tool-kit for displaying projections of
+higher dimensional objects."
+
+# PKG_NAMES="${PN} ${PN}-devel"
+
+# geomview_CATEGORY="Math"
+# geomview_devel_CATEGORY="Math Devel"
+
+# geomview_CONTENTS="
+#   usr/bin
+#   usr/libexec
+#   usr/share
+# "
+
+# geomview_devel_CONTENTS="
+#   usr/include
+#   usr/lib
+# "
+
+# CYGCONF_ARGS="--with-htmlbrowser=cygstart"
+
+# DEPEND="libXm-devel libGL-devel libGLU-devel zlib-devel"
