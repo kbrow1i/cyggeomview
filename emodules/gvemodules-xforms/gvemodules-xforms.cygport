@@ -4,9 +4,6 @@ RELEASE=1
 
 SRC_URI="mirror://sourceforge/geomview/${P}.tar.xz"
 
-# PATCH_URI="no_undefined.patch"
-# PATCH_URI+=" weak_symbols.patch"
-
 HOMEPAGE="http://www.geomview.org/"
 SUMMARY="XForms-based plugins for Geomview"
 
@@ -16,22 +13,8 @@ Geomview (an interactive 3d viewing program).  The modules are based
 on XForms and can be used as a tool-kit for displaying projections of
 higher dimensional objects."
 
-# PKG_NAMES="${PN} ${PN}-devel"
+CATEGORY="Math"
 
-# geomview_CATEGORY="Math"
-# geomview_devel_CATEGORY="Math Devel"
+DEPEND="geomview-devel libforms-devel libX11-devel"
 
-# geomview_CONTENTS="
-#   usr/bin
-#   usr/libexec
-#   usr/share
-# "
-
-# geomview_devel_CONTENTS="
-#   usr/include
-#   usr/lib
-# "
-
-# CYGCONF_ARGS="--with-htmlbrowser=cygstart"
-
-# DEPEND="libXm-devel libGL-devel libGLU-devel zlib-devel"
+DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
