@@ -19,4 +19,4 @@ CATEGORY="Math"
 
 DEPEND="geomview-devel tcl-tk-devel"
 
-# DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
+DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
