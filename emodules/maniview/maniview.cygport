@@ -1,0 +1,18 @@
+NAME="maniview"
+VERSION=2.0.4
+RELEASE=1
+
+SRC_URI="mirror://sourceforge/geomview/${P}.tar.xz"
+
+HOMEPAGE="http://www.geomview.org/"
+SUMMARY="The maniview plugin for Geomview"
+
+DESCRIPTION="This package contains the maniview emodule.  emodules are plugins
+which extend the functionality of Geomview (an interactive 3d viewing
+program)."
+
+CATEGORY="Math"
+
+DEPEND="geomview-devel libforms-devel"
+
+DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
