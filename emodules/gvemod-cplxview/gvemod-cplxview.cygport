@@ -1,0 +1,18 @@
+NAME="gvemod-cplxview"
+VERSION=0.3
+RELEASE=1
+
+SRC_URI="mirror://sourceforge/geomview/${P}.tar.xz"
+
+HOMEPAGE="http://www.geomview.org/"
+SUMMARY="The Cplxview plugin for Geomview"
+
+DESCRIPTION="This package contains the Cplxview emodule, a Geomview plugin for the
+visualisation of complex functions.  emodules are plugins which extend
+the functionality of Geomview (an interactive 3d viewing program)."
+
+CATEGORY="Math"
+
+DEPEND="geomview-devel libforms-devel"
+
+DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
