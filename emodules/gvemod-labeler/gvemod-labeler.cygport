@@ -15,5 +15,6 @@ are plugins which extend the functionality of Geomview (an interactive
 CATEGORY="Math"
 
 DEPEND="geomview-devel tcl-tk-devel"
+REQUIRES="geomview"
 
 DIFF_EXCLUDES="Makefile.in config.h.in ltmain.sh *.m4"
