@@ -1,0 +1,99 @@
+--- origsrc/savi1.5.0/savi	2016-09-02 22:54:44.000000000 -0400
++++ src/savi1.5.0/savi	2017-06-22 16:24:31.666972100 -0400
+@@ -115,9 +115,9 @@ elif [ -d /devices ]; then
+   ARCH=sun
+ elif [ -d /usr/bsd -a -d /usr/sbin ]; then
+   ARCH=irix
+-elif [ -d /cygdrive ]; then
++elif [ -d /proc/cygdrive ]; then
+   ARCH=cygwin
+-  if [ ! -d /usr/lib/tk8.5 ]; then
++  if [ ! -d /usr/lib/tk8.6 ]; then
+     # unix port of Tk 8.5 not installed
+     if [ ! -d /usr/share/tk/8.4 ]; then
+       # Insight Tk 8.4 not installed.
+@@ -169,8 +169,8 @@ if [ ${ARCH} = "cygwin84" ]; then
+   TK_LIBRARY=/usr/share/tk8.4
+ elif [ ${ARCH} = "cygwin" ]; then
+   # ...but new Tcl/Tk 8.5 port (Oct 2011) is installed here:
+-  TCL_LIBRARY=/usr/lib/tk8.5
+-  TK_LIBRARY=/usr/lib/tk8.5
++  TCL_LIBRARY=/usr/lib/tk8.6
++  TK_LIBRARY=/usr/lib/tk8.6
+ elif [ ${ARCH} = "macosx" ]; then
+   # Mac OS X installs libraries in shared folder
+   TCL_LIBRARY=/usr/lib
+--- origsrc/savi1.5.0/src/Makefile	2016-09-04 07:50:17.000000000 -0400
++++ src/savi1.5.0/src/Makefile	2017-06-22 16:24:31.687552900 -0400
+@@ -25,7 +25,7 @@ include Makefile_defs_$(ARCH)
+ # zlib enables transparent gzip compression of dynamic texture scratchfiles.
+ # OTHER_LIBS = -lz should be inserted at end of definitions file.
+ 
+-   GCC_FLAGS = -O2 -DNO_ZLIB
++   GCC_FLAGS = -O2
+ 
+         LIBS = $(TCL_LIBS) $(OTHER_LIBS) -lm
+ 
+--- origsrc/savi1.5.0/src/coverage_vis.c	2016-03-15 21:26:48.000000000 -0400
++++ src/savi1.5.0/src/coverage_vis.c	2017-06-22 16:24:31.692067400 -0400
+@@ -81,7 +81,7 @@ static int gzip_compress2(Bytef *dest, u
+                         const Bytef *source, uLong sourceLen,
+                         int level);
+ static void write_image_to_stream_compressed();
+-static void write_image_as_ppm_gz(gzFile *f);
++static void write_image_as_ppm_gz(gzFile f);
+ static void write_image_to_file_gz(char *name);
+ 
+ static void * image_compress_scratch = NULL;
+@@ -539,7 +539,7 @@ write_image_to_stream_compressed(void)
+ 
+ /* function requires zlib */
+ static void
+-write_image_as_ppm_gz(gzFile *f)
++write_image_as_ppm_gz(gzFile f)
+ {
+   unsigned int w, h, length, gzlength;
+   unsigned char *p;
+@@ -565,14 +565,14 @@ write_image_as_ppm_gz(gzFile *f)
+ static void
+ write_image_to_file_gz(char * name)
+ {
+-  gzFile *f;
++  gzFile f;
+ 
+   if (NULL == (f = gzopen(name, "w"))) {
+     fprintf(stderr,"\nSaVi: unable to save compressed coverage map to %s", name);
+     return;
+   }
+ 
+-  gzsetparams(name, Z_BEST_COMPRESSION, Z_RLE); /* Z_RLE for PNG-style data */
++  gzsetparams(f, Z_BEST_COMPRESSION, Z_RLE); /* Z_RLE for PNG-style data */
+   write_image_as_ppm_gz(f);
+ 
+   gzclose(f);
+--- origsrc/savi1.5.0/src/tcl_utils.c	2016-02-09 00:11:49.000000000 -0500
++++ src/savi1.5.0/src/tcl_utils.c	2017-06-22 16:29:11.686062000 -0400
+@@ -87,7 +87,11 @@ tk_init(Tcl_Interp * interpreter)
+ 
+ #if ( (TK_MAJOR_VERSION > 4) || ( (TK_MAJOR_VERSION == 4) && (TK_MINOR_VERSION > 0)) )
+   if (!(mainWindow = Tk_CreateWindow(interpreter, screenName, baseName, className))) {
++#  if (TK_MAJOR_VERSION >= 8)
++    error_format("tk_init: Can't create main wainWindow: %s", Tcl_GetStringResult(interpreter));
++#  else
+     error_format("tk_init: Can't create main wainWindow: %s", interpreter->result);
++#  endif
+     return FALSE;
+   }
+ #else
+@@ -297,7 +301,11 @@ unsigned int
+ tcl_script(char script[])
+ {
+   if (Tcl_GlobalEval(interp, script) == TCL_ERROR) {
++#if (TK_MAJOR_VERSION >= 8)
++    error_format("tcl_error: %s", Tcl_GetStringResult(interp));
++#else
+     error_format("tcl_error: %s", interp->result);
++#endif
+     return FALSE;
+   }
+   return TRUE;
